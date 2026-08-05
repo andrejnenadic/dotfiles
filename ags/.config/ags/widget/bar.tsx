@@ -1,8 +1,16 @@
 import { Astal, Gdk, Gtk } from "ags/gtk4";
 import app from "ags/gtk4/app";
 import { createPoll } from "ags/time";
+import { createBinding, onCleanup } from "gnim";
+import { Audio } from "./audio";
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+export function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
+  let win: Astal.Window = null!;
+  onCleanup(() => {
+    // Root components (windows) are not automatically destroyed.
+    win?.destroy();
+  });
+
   const time = createPoll("", 5000, () => {
     const now = new Date();
 
@@ -18,6 +26,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
+      $={(self) => (win = self)}
       visible
       name="bar"
       class="bar"
@@ -30,9 +39,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       }
       application={app}
     >
-      <box halign={Gtk.Align.START} class="datetime">
-        <label label={time} />
-      </box>
+      <centerbox>
+        <box $type="start" class="datetime">
+          <label label={time} />
+        </box>
+
+        <box $type="end" class="basic-info">
+          <Audio />
+        </box>
+      </centerbox>
     </window>
   );
 }

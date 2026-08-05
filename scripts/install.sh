@@ -1,14 +1,8 @@
-#!/bin/bash
+cd /tmp
+git clone https://github.com/aylur/astal.git
 
-stow -vR -t ~ bin
-stow -vR -t ~ wallpapers
-stow -vR -t ~ hypr
-stow -vR -t ~ kitty
-stow -vR -t ~ rofi
-
-read -p "Do you want to configure keyd (requires root)? (y/n) " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    sudo stow -t / keyd
-    sudo keyd reload
-fi
+# ags wireplumber
+sudo pacman --needed -S meson vala valadoc wireplumber gobject-introspection glib2 glib2-devel
+cd astal/lib/wireplumber
+meson setup build
+meson install -C build
