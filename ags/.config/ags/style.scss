@@ -2,7 +2,7 @@ $fg-color: #fff;
 $bg-color: #000;
 
 window.bar {
-  background: transparent;
+  background: $bg-color;
   color: $fg-color;
   padding: 8px 12px;
 
@@ -17,5 +17,5 @@ window.bar {
 
 window.dashboard {
   margin-bottom: 36px; // must be the same as (bar heightRequest - 4)px
-  background: linear-gradient(transparent, #000);
+  background: linear-gradient(transparent, $bg-color);
 }

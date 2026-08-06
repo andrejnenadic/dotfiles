@@ -23,6 +23,7 @@ export function Dashboard({
       class="dashboard"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.IGNORE}
+      layer={Astal.Layer.OVERLAY}
       anchor={
         Astal.WindowAnchor.BOTTOM |
         Astal.WindowAnchor.LEFT |

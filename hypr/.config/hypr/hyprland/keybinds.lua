@@ -21,6 +21,7 @@ hl.bind("SUPER + SHIFT + F", hl.dsp.window.float({
     action = "toggle"
 }))
 hl.bind("SUPER + S", hl.dsp.layout("togglesplit"))
+hl.bind("SUPER + E", hl.dsp.exec_cmd("ags request toggle-expanded"))
 
 -- focus
 hl.bind("SUPER + H", hl.dsp.focus({

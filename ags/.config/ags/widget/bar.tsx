@@ -1,7 +1,8 @@
 import { Astal, Gdk, Gtk } from "ags/gtk4";
 import app from "ags/gtk4/app";
 import { createPoll } from "ags/time";
-import { Accessor, createState, onCleanup, With } from "gnim";
+import AstalHyprland01 from "gi://AstalHyprland";
+import { Accessor, createBinding, onCleanup, With } from "gnim";
 import { Audio } from "./audio";
 
 export function Bar({
@@ -28,6 +29,36 @@ export function Bar({
     const dayOfWeek = now.toLocaleDateString(undefined, { weekday: "short" });
 
     return `${hours}:${minutes}, ${dayOfWeek} ${date}.${month}`;
+  });
+
+  const hypr = AstalHyprland01.get_default();
+
+  hypr.connect("event", (_, event, ...args) => {
+    const syncWindow = (fullscreen: boolean) => {
+      win.layer = Astal.Layer.TOP;
+      if (fullscreen) {
+        win.layer = expanded() ? Astal.Layer.OVERLAY : Astal.Layer.BOTTOM;
+      } else {
+        win.exclusivity = Astal.Exclusivity.EXCLUSIVE;
+        win.layer = Astal.Layer.OVERLAY;
+      }
+    };
+
+    if (event === "fullscreen") {
+      syncWindow(+args[0] !== 0);
+    } else if (event === "workspacev2") {
+      syncWindow(hypr.focusedWorkspace.hasFullscreen);
+    }
+  });
+
+  expanded.subscribe(() => {
+    win.layer = Astal.Layer.TOP;
+
+    if (expanded()) {
+      win.layer = Astal.Layer.OVERLAY;
+    } else {
+      win.layer = Astal.Layer.BOTTOM;
+    }
   });
 
   return (
