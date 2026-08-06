@@ -1,6 +1,5 @@
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$fg-color: #{"@theme_fg_color"};
-$bg-color: #{"@theme_bg_color"};
+$fg-color: #fff;
+$bg-color: #000;
 
 window.bar {
   background: transparent;
@@ -14,4 +13,9 @@ window.bar {
   image {
     margin-right: 6px;
   }
+}
+
+window.dashboard {
+  margin-bottom: 36px; // must be the same as (bar heightRequest - 4)px
+  background: linear-gradient(transparent, #000);
 }

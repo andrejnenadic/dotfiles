@@ -1,10 +1,16 @@
 import { Astal, Gdk, Gtk } from "ags/gtk4";
 import app from "ags/gtk4/app";
 import { createPoll } from "ags/time";
-import { createBinding, onCleanup } from "gnim";
+import { Accessor, createState, onCleanup, With } from "gnim";
 import { Audio } from "./audio";
 
-export function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
+export function Bar({
+  gdkmonitor,
+  expanded,
+}: {
+  gdkmonitor: Gdk.Monitor;
+  expanded: Accessor<boolean>;
+}) {
   let win: Astal.Window = null!;
   onCleanup(() => {
     // Root components (windows) are not automatically destroyed.
@@ -38,14 +44,23 @@ export function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
         Astal.WindowAnchor.RIGHT
       }
       application={app}
+      heightRequest={40}
     >
-      <centerbox>
+      <centerbox valign={Gtk.Align.CENTER}>
         <box $type="start" class="datetime">
           <label label={time} />
         </box>
 
         <box $type="end" class="basic-info">
-          <Audio />
+          <With value={expanded}>
+            {(x) =>
+              x && (
+                <box>
+                  <Audio />
+                </box>
+              )
+            }
+          </With>
         </box>
       </centerbox>
     </window>
