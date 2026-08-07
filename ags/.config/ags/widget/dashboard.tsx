@@ -1,6 +1,8 @@
 import { Astal, Gdk } from "ags/gtk4";
 import app from "ags/gtk4/app";
-import { Accessor, onCleanup } from "gnim";
+import { Accessor, onCleanup, With } from "gnim";
+import { Stats } from "./stats";
+import Gtk from "gi://Gtk?version=4.0";
 
 export function Dashboard({
   gdkmonitor,
@@ -31,6 +33,16 @@ export function Dashboard({
       }
       application={app}
       heightRequest={500}
-    ></window>
+    >
+      <With value={expanded}>
+        {(x) =>
+          x && (
+            <centerbox valign={Gtk.Align.END}>
+              <Stats expanded={expanded} />
+            </centerbox>
+          )
+        }
+      </With>
+    </window>
   );
 }

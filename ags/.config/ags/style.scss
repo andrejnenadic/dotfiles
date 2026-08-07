@@ -18,4 +18,18 @@ window.bar {
 window.dashboard {
   margin-bottom: 36px; // must be the same as (bar heightRequest - 4)px
   background: linear-gradient(transparent, $bg-color);
+
+  font-weight: 100;
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+
+  .stats-container {
+    padding: 12px;
+
+    box.stat {
+      & :first-child {
+  font-weight: 300;
+      }
+    }
+  }
 }

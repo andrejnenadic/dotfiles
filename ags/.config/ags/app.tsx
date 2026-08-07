@@ -4,10 +4,16 @@ import { Bar } from "./widget/bar";
 import { createBinding, For, This, createState } from "gnim";
 import Gdk from "gi://Gdk?version=4.0";
 import { Dashboard } from "./widget/dashboard";
+import { readFile } from "ags/file";
+
+export const scripts = {
+  stats: readFile("./scripts/stats.sh"),
+};
 
 app.start({
   css: style,
   gtkTheme: "Adwaita",
+
   main() {
     const monitors = createBinding(app, "monitors");
 
