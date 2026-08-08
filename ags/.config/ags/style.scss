@@ -1,14 +1,16 @@
 $fg-color: #fff;
 $bg-color: #000;
 
+window {
+  font-weight: 100;
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+}
+
 window.bar {
   background: $bg-color;
   color: $fg-color;
   padding: 8px 12px;
-
-  font-weight: 100;
-  font-size: 14px;
-  font-family: "JetBrains Mono", monospace;
 
   image {
     margin-right: 6px;
@@ -19,16 +21,12 @@ window.dashboard {
   margin-bottom: 36px; // must be the same as (bar heightRequest - 4)px
   background: linear-gradient(transparent, $bg-color);
 
-  font-weight: 100;
-  font-size: 14px;
-  font-family: "JetBrains Mono", monospace;
-
   .stats-container {
     padding: 12px;
 
     box.stat {
       & :first-child {
-  font-weight: 300;
+        font-weight: 300;
       }
     }
   }

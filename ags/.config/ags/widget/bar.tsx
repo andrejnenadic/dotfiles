@@ -4,6 +4,7 @@ import { createPoll } from "ags/time";
 import AstalHyprland01 from "gi://AstalHyprland";
 import { Accessor, createBinding, onCleanup, With } from "gnim";
 import { Audio } from "./audio";
+import { Workspace } from "./workspace";
 
 export function Bar({
   gdkmonitor,
@@ -86,8 +87,9 @@ export function Bar({
           <With value={expanded}>
             {(x) =>
               x && (
-                <box>
+                <box spacing={12}>
                   <Audio />
+                  <Workspace />
                 </box>
               )
             }
