@@ -1,0 +1,28 @@
+window {
+  font-weight: 100;
+  font-size: 14px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+window.bar {
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+}
+
+window.bar image {
+  margin-right: 6px;
+}
+
+window.dashboard {
+  margin-bottom: 36px; /* must be the same as (bar heightRequest - 4)px */
+  background: linear-gradient(transparent, #000);
+}
+
+window.dashboard .stats-container {
+  padding: 12px;
+}
+
+window.dashboard .stats-container box.stat :first-child {
+  font-weight: 300;
+}

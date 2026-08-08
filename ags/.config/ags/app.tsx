@@ -1,5 +1,5 @@
 import app from "ags/gtk4/app";
-import style from "./style.scss";
+import style from "./style.css";
 import { Bar } from "./widget/bar";
 import { createBinding, For, This, createState } from "gnim";
 import Gdk from "gi://Gdk?version=4.0";
