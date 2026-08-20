@@ -12,9 +12,14 @@ vim.opt.cursorline = true
 vim.opt.wrap = false
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'c'},
+    pattern = {'c', 'glsl', 'cmake'},
     callback = function()
         vim.treesitter.start()
+
+        vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        vim.wo[0][0].foldmethod = 'expr'
+        
+        vim.wo[0][0].foldlevel = 99 -- Start with all folds open
     end
 })
 
@@ -57,3 +62,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end
 })
 
+-- LSP navigation
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
