@@ -1,11 +1,11 @@
 #!/bin/bash
 
-stow -vR -t ~ bin
-stow -vR -t ~ wallpapers
-stow -vR -t ~ hypr
-stow -vR -t ~ kitty
-stow -vR -t ~ rofi
-stow -vR -t ~ nvim
+stow -vR --dotfiles -t ~ bin
+stow -vR --dotfiles -t ~ wallpapers
+stow -vR --dotfiles -t ~ hypr
+stow -vR --dotfiles -t ~ kitty
+stow -vR --dotfiles -t ~ rofi
+stow -vR --dotfiles -t ~ nvim
 
 read -p "Do you want to configure keyd (requires root)? (y/n) " -n 1 -r
 echo

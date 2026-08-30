@@ -1,7 +1,0 @@
-vim.lsp.enable("clangd")
-vim.lsp.enable("glsl_analyzer")
-vim.lsp.enable("neocmake")
-vim.lsp.enable("stylua")
-vim.lsp.enable("tsc")
-vim.lsp.enable("cssls")
-vim.lsp.enable("tailwindcss")

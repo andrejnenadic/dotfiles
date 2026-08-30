@@ -67,3 +67,5 @@ require("oil").setup({
         end
     }
 })
+
+vim.keymap.set("n", "-", "<CMD>Oil<CR>")
