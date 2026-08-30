@@ -1,5 +1,4 @@
 import { createPoll } from "ags/time";
-import { scripts } from "../app";
 import { Accessor, With } from "gnim";
 import Gtk from "gi://Gtk?version=4.0";
 
@@ -48,7 +47,11 @@ export function Stats({ expanded }: { expanded: Accessor<boolean> }) {
               class="stats-container"
             >
               {x.cpu && (
-                <box class="stat" orientation={Gtk.Orientation.VERTICAL} spacing={2}>
+                <box
+                  class="stat"
+                  orientation={Gtk.Orientation.VERTICAL}
+                  spacing={2}
+                >
                   <label xalign={Gtk.Align.START} label="CPU" />
                   <label
                     xalign={Gtk.Align.START}
@@ -62,7 +65,11 @@ export function Stats({ expanded }: { expanded: Accessor<boolean> }) {
               )}
 
               {x.gpu && (
-                <box class="stat" orientation={Gtk.Orientation.VERTICAL} spacing={2}>
+                <box
+                  class="stat"
+                  orientation={Gtk.Orientation.VERTICAL}
+                  spacing={2}
+                >
                   <label xalign={Gtk.Align.START} label="GPU" />
                   <label
                     xalign={Gtk.Align.START}
@@ -82,7 +89,11 @@ export function Stats({ expanded }: { expanded: Accessor<boolean> }) {
               )}
 
               {x.memory && (
-                <box class="stat" orientation={Gtk.Orientation.VERTICAL} spacing={2}>
+                <box
+                  class="stat"
+                  orientation={Gtk.Orientation.VERTICAL}
+                  spacing={2}
+                >
                   <label xalign={Gtk.Align.START} label="RAM" />
                   <label
                     xalign={Gtk.Align.START}
@@ -101,7 +112,11 @@ export function Stats({ expanded }: { expanded: Accessor<boolean> }) {
               )}
 
               {x.disk && (
-                <box class="stat" orientation={Gtk.Orientation.VERTICAL} spacing={2}>
+                <box
+                  class="stat"
+                  orientation={Gtk.Orientation.VERTICAL}
+                  spacing={2}
+                >
                   <label xalign={Gtk.Align.START} label="Disk" />
                   <label
                     xalign={Gtk.Align.START}
