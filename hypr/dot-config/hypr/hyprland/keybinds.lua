@@ -1,7 +1,6 @@
 local apps = require("hyprland/apps")
 
 hl.bind("SUPER + Q", hl.dsp.exec_cmd(apps.terminal))
-hl.bind("SUPER + C", hl.dsp.exec_cmd(apps.codeEditor))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(apps.browser))
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd(apps.browserPrivate))
 
@@ -75,6 +74,8 @@ hl.bind("XF86AudioRaiseVolume",
 hl.bind("XF86AudioLowerVolume",
     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 2.5%-"))
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
+
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +10%"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("sh -c 'b=$(brightnessctl g); m=$(brightnessctl m); new=$((b - m / 20)); if [ $new -lt $((m / 33)) ]; then new=$((m / 33)); fi; brightnessctl set $new'"))
+
