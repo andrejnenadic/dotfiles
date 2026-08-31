@@ -7,11 +7,15 @@ git clone https://github.com/aylur/astal.git
 sudo pacman --needed -S meson vala valadoc wireplumber gobject-introspection glib2 glib2-devel json-glib gobject-introspection
 
 cd astal/lib/wireplumber
-meson setup build
+meson setup build --prefix /usr
 meson install -C build
 
 cd ../hyprland
-meson setup build
+meson setup build --prefix /usr
+meson install -C build
+
+cd ../battery
+meson setup build --prefix /usr
 meson install -C build
 
 cd /tmp

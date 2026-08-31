@@ -48,3 +48,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 require("config.oil")
 require("config.lsp")
 require("config.treesitter")
+require("config.telescope")
