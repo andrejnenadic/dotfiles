@@ -1,5 +1,6 @@
 #!/bin/bash
 
+stow -vR --dotfiles -t ~ ags
 stow -vR --dotfiles -t ~ bin
 stow -vR --dotfiles -t ~ wallpapers
 stow -vR --dotfiles -t ~ hypr
