@@ -76,6 +76,6 @@ hl.bind("XF86AudioLowerVolume",
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
 
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +10%"))
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("sh -c 'b=$(brightnessctl g); m=$(brightnessctl m); new=$((b - m / 20)); if [ $new -lt $((m / 33)) ]; then new=$((m / 33)); fi; brightnessctl set $new'"))
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"))
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("sh -c 'b=$(brightnessctl g); m=$(brightnessctl m); new=$((b - m / 20)); if [ $new -lt $((m / 20)) ]; then new=$((m / 20)); fi; brightnessctl set $new'"))
 

@@ -18,6 +18,10 @@ cd ../battery
 meson setup build --prefix /usr
 meson install -C build
 
+cd ../brightness
+meson setup build --prefix /usr -Dcli=false
+meson install -C build
+
 cd /tmp
 rm -rf astal
 

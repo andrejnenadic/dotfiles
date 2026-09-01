@@ -11,7 +11,7 @@ export function Battery() {
       />
       <label
         label={createBinding(battery, "percentage").as(
-          (x) => `${(x * 100).toFixed(1).padStart(4)}%`,
+          (x) => `${(x * 100).toFixed(0)}%`,
         )}
       />
     </box>

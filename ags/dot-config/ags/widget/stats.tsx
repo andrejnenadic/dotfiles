@@ -7,12 +7,6 @@ type Stats = Partial<{
     usage: number;
     temp: number;
   };
-  gpu: {
-    usage: number;
-    temp: number;
-    used_vram: number;
-    total_vram: number;
-  };
   memory: {
     used: number;
     total: number;
@@ -60,30 +54,6 @@ export function Stats({ expanded }: { expanded: Accessor<boolean> }) {
                   <label
                     xalign={Gtk.Align.START}
                     label={`Temp: ${x.cpu.temp.toFixed(0)}°C`}
-                  />
-                </box>
-              )}
-
-              {x.gpu && (
-                <box
-                  class="stat"
-                  orientation={Gtk.Orientation.VERTICAL}
-                  spacing={2}
-                >
-                  <label xalign={Gtk.Align.START} label="GPU" />
-                  <label
-                    xalign={Gtk.Align.START}
-                    label={`Usage: ${x.gpu.usage.toFixed(0)}%`}
-                  />
-                  <label
-                    xalign={Gtk.Align.START}
-                    label={`Temp: ${x.gpu.temp.toFixed(0)}°C`}
-                  />
-                  <label
-                    xalign={Gtk.Align.START}
-                    label={`VRAM: ${(x.gpu.used_vram / 1024).toFixed(
-                      2,
-                    )} GB / ${(x.gpu.total_vram / 1024).toFixed(2)} GB`}
                   />
                 </box>
               )}

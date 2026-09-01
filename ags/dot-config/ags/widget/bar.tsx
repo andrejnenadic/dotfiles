@@ -6,6 +6,7 @@ import { Accessor, createBinding, onCleanup, With } from "gnim";
 import { Audio } from "./audio";
 import { Workspace } from "./workspace";
 import { Battery } from "./battery";
+import { Brightness } from "./brightness";
 
 export function Bar({
   gdkmonitor,
@@ -90,6 +91,7 @@ export function Bar({
               x && (
                 <box spacing={12}>
                   <Audio />
+                  <Brightness />
                   <Battery />
                   <Workspace />
                 </box>
