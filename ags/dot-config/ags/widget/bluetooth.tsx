@@ -28,6 +28,20 @@ export function Bluetooth() {
 
         <popover>
           <box orientation={Gtk.Orientation.VERTICAL} spacing={4}>
+            <With
+              value={createBinding(bluetooth, "devices").as(
+                (x) => x.length <= 0,
+              )}
+            >
+              {(x: boolean) =>
+                x && (
+                  <box class="no-devices-found">
+                    <label label={"No devices found"} />
+                  </box>
+                )
+              }
+            </With>
+
             <For each={createBinding(bluetooth, "devices")}>
               {(dev: AstalBluetooth.Device) => {
                 return (
@@ -36,12 +50,16 @@ export function Bluetooth() {
                       x ? "connected" : "",
                     )}
                     onClicked={() => {
-                      if (!dev.paired) {
-                        dev.pair();
-                      }
-
                       if (!dev.connected) {
+                        if (!dev.paired) {
+                          dev.pair();
+                        }
+
                         dev.connect_device((_, x) => {
+                          console.log(x);
+                        });
+                      } else {
+                        dev.disconnect_device((_, x) => {
                           console.log(x);
                         });
                       }
@@ -63,13 +81,13 @@ export function Bluetooth() {
                       >
                         {(x: boolean) =>
                           x && (
-                            <box>
+                            <box class="battery">
                               <image iconName="battery" />
                               <label
                                 label={createBinding(
                                   dev,
                                   "batteryPercentage",
-                                ).as((x) => (x * 100).toFixed(0))}
+                                ).as((x) => (x * 100).toFixed(0) + "%")}
                               />
                             </box>
                           )

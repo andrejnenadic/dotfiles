@@ -41,7 +41,39 @@ menubutton.bluetooth:hover>button {
   background: #aaaaaa33;
 }
 
-.connected {
+.bluetooth popover>* {
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+
+.bluetooth popover>* button {
+  background: #000;
+  border: 1px solid #aaa;
+  color: #fff;
+  transition: 150ms;
+}
+
+.bluetooth popover>* button:hover {
+  background: #222;
+  border-color: #fff;
+}
+
+.bluetooth popover>* button.connected {
   border-color: #0f0;
-  background: #cfc;
+  background: #030;
+}
+
+.bluetooth popover>* button.connected:hover {
+  background: #252;
+}
+
+.bluetooth popover>* button .battery {
+  margin-left: 8px;
+}
+
+.no-devices-found {
+  color: #aaa;
+  margin: 4px 12px;
 }
