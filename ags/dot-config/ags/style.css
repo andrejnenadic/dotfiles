@@ -15,7 +15,8 @@ window.bar image {
 }
 
 window.dashboard {
-  margin-bottom: 36px; /* must be the same as (bar heightRequest - 4)px */
+  margin-bottom: 36px;
+  /* must be the same as (bar heightRequest - 4)px */
   background: linear-gradient(transparent, #000);
 }
 
@@ -25,4 +26,22 @@ window.dashboard .stats-container {
 
 window.dashboard .stats-container box.stat :first-child {
   font-weight: 300;
+}
+
+menubutton.bluetooth>button {
+  background: none;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  transition: 100ms;
+}
+
+menubutton.bluetooth:hover>button {
+  background: #aaaaaa33;
+}
+
+.connected {
+  border-color: #0f0;
+  background: #cfc;
 }

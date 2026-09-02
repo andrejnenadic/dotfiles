@@ -7,6 +7,7 @@ import { Audio } from "./audio";
 import { Workspace } from "./workspace";
 import { Battery } from "./battery";
 import { Brightness } from "./brightness";
+import { Bluetooth } from "./bluetooth";
 
 export function Bar({
   gdkmonitor,
@@ -93,6 +94,7 @@ export function Bar({
                   <Audio />
                   <Brightness />
                   <Battery />
+                  <Bluetooth />
                   <Workspace />
                 </box>
               )
