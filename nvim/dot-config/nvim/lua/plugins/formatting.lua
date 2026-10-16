@@ -19,6 +19,8 @@ return {
 				javascript = { "prettierd" },
 				javascriptreact = { "prettierd" },
 				json = { "prettierd" },
+				html = { "prettierd" },
+				vue = { "prettierd" },
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
