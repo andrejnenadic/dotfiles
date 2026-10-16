@@ -10,6 +10,8 @@ langs = {
 	"typescript",
 	"tsx",
 	"json",
+	"vue",
+	"php",
 }
 
 require("nvim-treesitter").install(langs)
